@@ -1,6 +1,5 @@
 let keys = Array.from(document.querySelectorAll('.key'));
 
-
 function playOnKey(e) {
 
     let audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
@@ -16,7 +15,6 @@ function playOnKey(e) {
 
     keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 };
-
 
 function playOnIt(e) {
 
@@ -35,15 +33,12 @@ function playOnIt(e) {
 
 }
 
-
 function removeTransition(e) {
     this.classList.remove('playing');
     this.addEventListener('transitionend', removeTransition);
 }
 
-
 window.addEventListener('keydown', playOnKey);
 const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Windows Phone/i.test(navigator.userAgent);
 
 (isMobile) ? keys.forEach(key => key.addEventListener('mousedown', playOnIt)) : keys.forEach(key => key.addEventListener('click', playOnIt));
-
